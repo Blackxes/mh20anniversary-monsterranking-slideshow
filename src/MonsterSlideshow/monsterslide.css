@@ -1,0 +1,40 @@
+/**
+ * @Author Alexander Bassov Sat Mar 16 2024
+ * @Email blackxes.dev@gmail.com
+ */
+
+.monster-slide { padding: var(--padding); min-height: inherit; position: relative;
+  --monsters-count: 1;
+
+  & .no-monster { font-style: italic; font-size: 2rem; }
+  & .rank-control { padding: 10px 20px; align-self: center; }
+  & .monster-rank {
+    & * { padding-inline: 5px; font-size: 5rem; }
+    & .monster-rank-text-wrapper:hover { cursor: pointer; background-color: var(--red1); }
+    & .monster-rank-edit-icon { font-size: 2rem; }
+    & .monster-rank-input { padding-top: 5px; padding-bottom: 6px; max-width: 150px; text-align: center; width: 100%; border: 1px solid var(--grey1);
+      &:is(:focus, :active) { border: 1px solid var(--green1); outline: none; }
+      &::-webkit-inner-spin-button { appearance: none; }
+      &::placeholder { font-size: 3rem; align-self: center; transform: translateY(-0.5rem); }
+    }
+  }
+  & .monsters-listing { padding-inline: 50px; grid-template-columns: repeat(var(--monsters-count), 1fr); }
+  & .monster-item { padding: var(--padding); background-color: var(--red1); }
+  & .monster-image { width: 100%; height: 100%; max-height: 60vh; }
+  & .name-wrapper {
+    & .species { display: inline-block; font-size: 3rem; text-decoration-line: underline; }
+    & .name-subspecies { font-size: 1.5rem; font-style: italic; }
+  }
+  & .slide-controls { user-select: none;
+    & .slide-control { width: 80px; color: hsl(240 16 32); font-size: 20px; border: outset 2px var(--green1);
+      & .slide-control-icons { padding-bottom: 0.6rem; font-size: 5rem; }
+      &:hover { cursor: pointer; filter: hue-rotate(90deg); }
+      &:active { border-style: inset; }
+    }
+  }
+  & .skip-empty-ranks { padding: 10px 20px; align-self: center; position: absolute; right: 100px;
+    outline: none; border: 2px outset var(--green1); background: white;
+    &[data-is-active="true"] { border-color: var(--grey1); border-style: inset; background-color: var(--red1); }
+    &:hover { filter: hue-rotate(90deg); }
+  }
+}
